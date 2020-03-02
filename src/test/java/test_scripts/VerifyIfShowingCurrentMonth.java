@@ -25,21 +25,42 @@ import page_objects.HotelLandingPage;
             System.out.println(landingPage.getCurrentMonth_Hotel());
             String systemMonth = landingPage.getSystemMonth();
             System.out.println(landingPage.getSystemMonth());
+            boolean previousArrowDisplayed = landingPage.isPreviousArrowDisplayed();
 
-            if(currentMonth_Hotel != systemMonth){
+            if (!currentMonth_Hotel.equals(systemMonth) && !previousArrowDisplayed) {
+                landingPage.clickNextMonthArrow();
+                syncWait(3000);
+            } else {
                 landingPage.clickPreviousMonthArrow();
                 syncWait(3000);
             }
 
-            String tommorrow = landingPage.getSystemDate();
-            System.out.println(landingPage.getSystemDate());
-            syncWait(2000);
 
+//         String today = landingPage.getSystemDate();
+//        System.out.println(landingPage.getSystemDate());
+//        syncWait(2000);
+//
+//
+            landingPage.getChechInDate();
+            System.out.println(landingPage.getChechInDate());
+
+            landingPage.getCheckOutDate();
+            System.out.println(landingPage.getCheckOutDate());
 
         }
 
-
-
     }
 
-}
+
+//            String tommorrow = landingPage.getSystemDate();
+//            System.out.println(landingPage.getSystemDate());
+//            syncWait(2000);
+
+
+
+
+
+
+
+
+
